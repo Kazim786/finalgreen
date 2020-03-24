@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 let db = require('../models');
+const formidable = require("formidable");
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
@@ -9,42 +10,77 @@ router.use(bodyParser.urlencoded({ extended: false }));
 ///parese json///
 router.use(bodyParser.json())
 
+///upload///
+function uploadFile(req,callback){
+
+///uses formidable install in app.js and this file to get uploads
+  new formidable.IncomingForm()
+    .parse(req)
+    .on("fileBegin", (name, file) => {
+      //allow you to change name of file//
+file.path = __basedir + "/uploads" + file.name
+    })
+
+    .on("file", (name, file) => {
+callback(file.name)
+
+    })
+}
+
+router.post("/upload", (req, res) => {
+
+uploadFile(req,(photoURL)=>{
+res.render('routes/current',{imageUrl:photoURL})
+})
+
+})
+
 
 ///get all items//////
 router.get("/current", (req, res) => {
-db.items.findAll()
-.then(items => res.send(items))
+db.items.findAll().then(items => res.render("current", { items: items }));
 });
 
 /////done/////////
 
 
 ////get item by id//////
-router.get("/current/:id", (req, res) => {
-  db.items.findAll({
-    where: {
-      id: req.params.id
-    }
-  }).then(items => res.send(items));
-});
+// router.get("/current/:id", (req, res) => {
+//   db.items.findAll({
+//     where: {
+//       id: req.params.id
+//     }
+//   }).then(items =>   res.render("/current", { items: items }))
+
+// });
 /////////done//////
 
 
 ////post new item//////
 
 router.post("/current", (req, res) =>{
-  let newItem = db.items.create({
-    categories: req.body.category,
-    amount: req.body.amount,
-    imageUrl: req.body.imageurl,
-    Description: req.body.description,
-    item_Name: req.body.item,
-    UserId: req.body.user,
-    updatedAt: new Date(),
-    CreatedAt: new Date()
-  }).then(submitedItem => res.send(submitedItem))
-});
+  console.log(req.body)
 
+  let newItem = db.items
+    .create({
+      categories: req.body.category,
+      amount: req.body.amount,
+      imageUrl: req.body.imageurl,
+      Description: req.body.description,
+      item_Name: req.body.item,
+      UserID: req.body.user,
+      updatedAt: new Date(),
+      CreatedAt: new Date()
+    })
+    .then(submitedItem => {
+    
+
+      db.items.findAll().then(items =>{
+     
+        res.render("current", { items: items })
+      })
+})
+});
 
 ////done////
 

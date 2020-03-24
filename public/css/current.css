@@ -37,7 +37,7 @@
 
 body {
   /* background-size: 100% 100%; */
-  background-image: url("/images/house.jpg");
+background-color: whitesmoke;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -95,7 +95,9 @@ body:after {
 }
 
 .btn {
+
   border: 6px solid #ed7669;
+  
 }
 .btn.active {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
@@ -144,6 +146,37 @@ body:after {
   background-color: whitesmoke;
   opacity: 0.9;
 }
+
+.holder {
+  justify-self: start;
+}
+
+.cash{
+  color: green;
+}
+
+.contain{
+display: flex;
+justify-content: center;
+align-items: center;
+justify-items: center;
+
+
+}
+
+.border{
+border: 15.5px solid #2980b9;
+
+}
+.color{
+background-color: #F7FFF7;
+
+}
+
+
+
+
+
 
 @import url(
   https://fonts.googleapis.com/css?family=Droid+Serif:400,
@@ -375,3 +408,23 @@ body {
 .cash{
   color: green;
 }
+
+.contain{
+display: flex;
+justify-content: center;
+align-items: center;
+justify-items: center;
+
+
+}
+
+.border{
+border: 15.5px solid #2980b9;
+
+}
+.color{
+background-color: #F7FFF7;
+
+}
+
+
