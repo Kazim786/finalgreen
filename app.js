@@ -12,10 +12,15 @@ const CONNECTION_STRING = 'postgres://localhost:5432/green'
 // let auth = require("./auth");
 
 
-// let sessions = require("express-session");
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+}))// let sessions = require("express-session");
 // let cookieParser = require("cookie-parser");
 
-const db = pgp(CONNECTION_STRING)
+const db2 = pgp(CONNECTION_STRING)
 
 app.post('/index', (req, res) => {
   let username = req.body.username
@@ -28,7 +33,7 @@ app.post('/index', (req, res) => {
     }
 
     else{
-      db.none('INSERT INTO Users(username,password) VALUES($1,$2)', [username,password])
+      db2.none('INSERT INTO Users(username,password) VALUES($1,$2)', [username,password])
       .then(() => {
         res.send('SUCCESS')
       })
@@ -36,6 +41,9 @@ app.post('/index', (req, res) => {
 
   })
 })
+
+
+//I did the top section so far from azams course
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
