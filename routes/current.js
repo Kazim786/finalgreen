@@ -2,12 +2,38 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 let db = require('../models');
+const formidable = require("formidable");
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
 
 ///parese json///
 router.use(bodyParser.json())
+
+///upload///
+function uploadFile(req,callback){
+
+///uses formidable install in app.js and this file to get uploads
+  new formidable.IncomingForm()
+    .parse(req)
+    .on("fileBegin", (name, file) => {
+      //allow you to change name of file//
+file.path = __basedir + "/uploads" + file.name
+    })
+
+    .on("file", (name, file) => {
+callback(file.name)
+
+    })
+}
+
+router.post("/upload", (req, res) => {
+
+uploadFile(req,(photoURL)=>{
+res.render('routes/current',{imageUrl:photoURL})
+})
+
+})
 
 
 ///get all items//////

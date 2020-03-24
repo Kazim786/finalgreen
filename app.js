@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3500;
 const bcrypt = require('bcrypt')
 const session = require('express-session')
 const index = require('./routes/index')
+const formidable = require('formidable')
+const path = require('path')
 
 // const bodyParser = require("body-parser");
 // let auth = require("./auth");
@@ -14,10 +16,16 @@ const index = require('./routes/index')
 // let sessions = require("express-session");
 // let cookieParser = require("cookie-parser");
 
+  const VIEWS_PATH =path.join(__dirname,'/views')
+
+///to get base direcctory for uploads
+global.__basedir = __dirname;
+
 
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use('/uploads',express.static("uploads"));
 app.use(index);
 app.use(require("./routes/current"));
 app.use(require("./routes/api"));
