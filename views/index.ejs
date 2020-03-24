@@ -40,7 +40,7 @@
             
         </div>
 
-<form method="POST" id="form1" action="/current" class="opacity">
+<form method="POST" id="form1" action="/register" class="opacity">
 
     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">name</label>
     <div class="form-group row">
@@ -120,12 +120,13 @@
 
         </div>
 
-<!-- {{#message}}
 <div class="alert alert-danger" role="alert">
-    {{message}}
+    <% if (message) { %>
+        <p> <%= message %></p>
+        <% } %>
+
+        click Future Residence to try again
 </div>
-{{/message}}
- -->
 
 
 

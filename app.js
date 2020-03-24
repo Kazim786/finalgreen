@@ -10,18 +10,48 @@ const formidable = require('formidable')
 const path = require('path')
 
 // const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
+const pgp = require('pg-promise')()
+const CONNECTION_STRING = 'postgres://localhost:5432/green'
 // let auth = require("./auth");
 
 
-// let sessions = require("express-session");
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+}))// let sessions = require("express-session");
 // let cookieParser = require("cookie-parser");
 
   const VIEWS_PATH =path.join(__dirname,'/views')
 
 ///to get base direcctory for uploads
 global.__basedir = __dirname;
+const db2 = pgp(CONNECTION_STRING)
+
+app.post('/index', (req, res) => {
+  let username = req.body.username
+  let password = req.body.password
+
+  db.oneOrNone('SELECT id FROM Users where username = $1', [username])
+  .then((User) => {
+    if(User){
+      res.render('register', {message: 'User name already exists!'})
+    }
+
+    else{
+      db2.none('INSERT INTO Users(username,password) VALUES($1,$2)', [username,password])
+      .then(() => {
+        res.send('SUCCESS')
+      })
+    }
+
+  })
+})
 
 
+//I did the top section so far from azams course
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
