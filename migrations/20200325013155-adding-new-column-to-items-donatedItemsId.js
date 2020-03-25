@@ -11,17 +11,17 @@ module.exports = {
     */
   
     
-  // return queryInterface.addColumn(
-  //   'items',
-  //   'donatedItemsId',
-  //   {
-  //     type: Sequelize.INTEGER,
-  //     references: {
-  //       model: 'items'
-  //     },
-  //     allowNull: true
-  //   }
-  // );
+  return queryInterface.addColumn(
+    'items',
+    'donatedItemsId',
+    {
+      type: Sequelize.INTEGER,
+      references: {
+        model: 'items'
+      },
+      allowNull: true
+    }
+  );
 
 
 

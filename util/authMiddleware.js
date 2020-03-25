@@ -1,6 +1,7 @@
 function authenticate(req, res, next) {
+  console.log(req.session)
     if (req.session) {
-      if (req.session.userName) {
+      if (req.session.username) {
         next();
       } else {
         res.redirect("/");
