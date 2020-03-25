@@ -19,21 +19,55 @@
 
 <body>
 
-   
+<nav class="navbar navbar-dark bg-dark">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">A WORLD WITH NO BARRIERES</a>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+           
+
+            <li class="nav-item">
+                <a class="nav-link" href="/registerOrgs">Sign-Up Organizations</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Sign-Up Supporters</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/current">Marketplace</a>
+            </li>
+        </ul>
+    <h4><a class="nav-link" href="#">About-us</a></h4>
+    </div>
+
+
+</nav>
 
 
 
     <div class="row">
+<div class="overall col-lg-6 col-md-6 col-sm-6">
+   
+
+
+
+    
 
         <div class="contain1 ">
             </button>
-            <div class="space"><div class="centerText">  </div><img class="pic glow" src="images/movein.jpg" alt="" /><button id="press-me1" type="button"
+            <div class="space"><div class="centerText">  </div><img class="pic glow" src="images/donate.jpg" alt="" /><button id="press-me1" type="button"
                     class="btn btn-secondary btn-lg btn-block">
 
               
                     <span class="btn-inr">
-                        <span class="txt-a">Future Residence</span>
-                        <span class="txt-b">Sign Up</span>
+                        <span class="txt-a">Organizations</span>
+                        <span class="txt-b">Sign in</span>
                     </span>
                 
                     <!-- <span class="txt-a">Sign Up</span> </div> -->
@@ -42,31 +76,31 @@
 
 <form method="POST" id="form1" action="/register" class="opacity">
 
-    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">name</label>
+    <!-- <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">name</label>
     <div class="form-group row">
         <div class="col-sm-10">
             <input name="name" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="email">
         </div>
-    </div>
+    </div> -->
 
 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">username</label>
 <div class="form-group row">
     <div class="col-sm-10">
-        <input name="username" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="email">
+        <input name="name" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Username">
     </div>
 </div>
 
-<label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">address</label>
+<!-- <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">address</label>
 <div class="form-group row">
     <div class="col-sm-10">
         <input name="address" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="email">
     </div>
-</div>
+</div> -->
 
     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Password</label>
     <div class="form-group row">
         <div class="col-sm-10">
-            <input name="password" type="password" class="form-control form-control-sm" id="colFormLabelSm" placeholder="password">
+            <input name="password" type="password" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Password">
         </div>
     </div>
 
@@ -77,8 +111,15 @@
 
         </div>
 
+</div>
 
 
+
+<!-- //////// -->
+
+
+
+<div class="overall1 col-lg-6 col-md-6 col-sm-6">
         <div class="contain2 ">
             </button>
             <div class="space">
@@ -87,7 +128,7 @@
         
         
                     <span class="btn-inr">
-                        <span class="txt-a">Current Residence</span>
+                        <span class="txt-a">Supporter</span>
                         <span class="txt-b">Login</span>
                     </span>
         
@@ -100,7 +141,7 @@
 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">username</label>
 <div class="form-group row">
     <div class="col-sm-10">
-        <input name="username" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="email">
+        <input name="username" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Username">
     </div>
 </div>
 
@@ -109,7 +150,7 @@
     <div class="form-group row">
         <div class="col-sm-10">
             <input name="password" type="password" class="form-control form-control-sm" id="colFormLabelSm"
-                placeholder="password">
+                placeholder="Password">
         </div>
     </div>
 
@@ -135,15 +176,11 @@
    
         <p> <%= message %></p>
 
-        click Future Residence to try again
 </div>
 <% } %>
 
 
-
-
-
-        <div class="contain3 ">
+        <!-- <div class="contain3 ">
             </button>
             <div class="space">
                 <div class="centerText">  </div><img class="pic glow" src="images/donate.jpg" alt="" /><button
@@ -154,11 +191,11 @@
                         <span class="txt-a">Donations</span>
                         <span class="txt-b">Donate</span>
                     </span>
-        
+         -->
 
                     <!-- <span class="txt-a">Sign Up</span> </div> -->
         
-            </div>
+            <!-- </div>
 
             <form method="POST" id="form3" action="/donate" class="opacity">
 
@@ -181,7 +218,7 @@
               <a href="/donate"><button type="submit" class="btn btn-primary">Submit</button></a>  
 
             </form>
-        </div>
+        </div> -->
 
 
 

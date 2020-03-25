@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 10;
 const session = require("express-session");
 
-router.get("/", (req, res) => {
+router.get("/index", (req, res) => {
   res.render("index", {
     pageTitle: "index",
     message: null,
@@ -55,7 +55,7 @@ router.post("/register", async (req, res) => {
             req.session.username = savedUser.username
             console.log(req.session)
           }
-          res.redirect("market");
+          res.redirect("current");
         } else {
           res.render("index", { message: "username is taken" });
         }
