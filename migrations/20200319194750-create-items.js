@@ -22,6 +22,9 @@ module.exports = {
         allowNull: true,
         type: Sequelize.DATE
       }
+      // donatedItemsId: {
+      //   type: Sequelize.INTEGER
+      // }
     });
   },
   down: (queryInterface, Sequelize) => {

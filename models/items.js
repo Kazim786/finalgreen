@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   items.associate = function(models) {
     // associations can be defined here
+    // items.belongsTo(models.donation, { foreignKey: 'id'});
   };
   return items;
 };
