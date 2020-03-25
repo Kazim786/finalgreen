@@ -84,7 +84,7 @@ router.post("/register", async (req, res) => {
           if(req.session) {
             req.session.userName = savedUser.userName
           }
-          res.redirect("market");
+          res.redirect("current");
         } else {
           res.render("index", { message: "username is taken" });
         }
@@ -94,6 +94,8 @@ router.post("/register", async (req, res) => {
     res.render("index", { message: "username is taken" });
   }
 });
+
+
 
 ///azams class///
 

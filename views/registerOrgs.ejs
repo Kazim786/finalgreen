@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <form method="POST" id="form1" action="/register" class="opacity">
+    <form method="POST" id="form1" action="/registerOrgs" class="opacity">
     
       
     
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">username</label>
         <div class="form-group row">
             <div class="col-sm-10">
-                <input name="name" type="text" class="form-control form-control-sm" id="colFormLabelSm"
+                <input name="username" type="text" class="form-control form-control-sm" id="colFormLabelSm"
                     placeholder="Username">
             </div>
         </div>
@@ -30,10 +30,14 @@
         </div>
     
     <div class="form-group row">
-        <label for="exampleFormControlTextarea1">Description</label>
+        <label for="exampleFormControlTextarea1">---Description</label>
         <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     
+    <div class="form-group row">
+        <label for="exampleFormControlTextarea1">---Card On File</label>
+        <textarea name="creditcard" placeholder="****-****-****-****" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Password</label>
         <div class="form-group row">
             <div class="col-sm-10">
