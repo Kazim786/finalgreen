@@ -1,0 +1,130 @@
+body {
+  /* margin: 0;
+  padding: 0; */
+}
+/* .height{
+width: 100vw;
+  height: 100vh;
+
+} */
+section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url("images/country.jpg");
+ background-size: cover;
+
+ text-align: center;
+}
+
+.focus {
+  /* position: absolute; */
+
+  
+}
+
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  margin: 0;
+}
+
+
+
+/* .scene {
+  position: relative;
+  /* height: 100%; */
+  /* background: #1d1f20;
+  padding: 20rem;
+  text-align: center;
+} */
+
+h1 {
+  position: relative;
+  /* padding-bottom: 10px; */
+  font-size: 40px;
+  text-transform: uppercase;
+  font-family: test;
+  font-style: oblique;
+  color: black;
+  z-index: 10;
+}
+
+.scope {
+  /* z-index: 5;
+  position: absolute;
+  top: calc(50% - 10rem);
+  left: calc(50% - 10rem);
+  width: 50rem;
+  height: 50rem;
+  background: url("herat.jpg") 50% 50% no-repeat fixed;
+  border-radius: 50%;
+
+
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: "Lato", "Avant Garde", Avantgarde, "Century Gothic",
+    CenturyGothic, "AppleGothic", sans-serif;
+  background-position: center; */
+}
+
+
+
+
+.btn,
+.btn > span {
+  cursor: pointer;
+}
+.txt-b1 ,
+.txt-b {
+  display: none;
+}
+.btn1:focus .txt-a1,
+.btn1:hover .txt-a1,
+.btn:focus .txt-a,
+.btn:hover .txt-a {
+  display: none;
+}
+.btn1:focus .txt-b1,
+.btn1:hover .txt-b1,
+.btn:focus .txt-b,
+.btn:hover .txt-b {
+  display: inline;
+}
+
+
+
+
+.glow {
+  /*Transition*/
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+
+  /*Reflection*/
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.7, transparent), to(rgba(0, 0, 0, 0.1)));
+}
+
+.glow:hover {
+  opacity: 1;
+
+  /*Reflection*/
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.7, transparent), to(rgba(0, 0, 0, 0.4)));
+
+  /*Glow*/
+  -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+}
+
+.padding{
+
+padding-bottom: 120px;
+
+}
+
+
+
+

@@ -2,13 +2,13 @@ const express = require("express");
 const app = express();
 var io = require('socket.io')();
 const db = require('./models');
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 5502;
 const bcrypt = require('bcrypt')
 const session = require('express-session')
 const index = require('./routes/index')
 const formidable = require('formidable')
 const path = require('path')
-
+const frontpage = require('./routes/frontpage')
 // const bodyParser = require("body-parser");
 const bodyParser = require("body-parser");
 const pgp = require('pg-promise')()
@@ -57,6 +57,9 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use('/uploads',express.static("uploads"));
 app.use(index);
+app.use(frontpage);
+app.use(require("./routes/register"));
+app.use(require("./routes/registerOrgs"));
 app.use(require("./routes/current"));
 app.use(require("./routes/api"));
 app.use(require("./routes/donate"));

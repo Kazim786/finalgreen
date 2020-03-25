@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 10;
 const session = require("express-session");
 
-router.get("/", (req, res) => {
+router.get("/index", (req, res) => {
   res.render("index", {
     pageTitle: "index",
     message: ""
@@ -42,12 +42,12 @@ router.post("/", async (req, res) => {
         }
         ///if password is wrong
       } else {
-        res.render("/", { message: "password/username is wrong" });
+        res.render("/index", { message: "password/username is wrong" });
       }
     });
     ///if username is wrong
   } else {
-    res.render("/", { message: "password/username is wrong" });
+    res.render("/index", { message: "password/username is wrong" });
   }
 });
 
