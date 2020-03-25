@@ -26,8 +26,8 @@
 
 
 <div class="row">
-
-    <div class="col-lg-4 pad-top">
+ 
+     <div class="col-lg-4 pad-top">
       <h1>Add products here!</h1>
       <form action="/current" class="clear" method="POST">
         <div class="form-group">
@@ -74,13 +74,13 @@
           </select>
         </div>
 
-        <!-- <aside class="col-sm-8">
+         <aside class="col-sm-8">
   <div class="maincontent feedback">
     <h2 class="article-title">Recent Feedback</h2>
     <div class="market-messages"></div>
   </div>
 </aside><!-- secondary -->
-
+ 
         <div class="form-group cat">
           <label for="exampleFormControlSelect2">Category</label>
           <select
@@ -105,11 +105,11 @@
             id="exampleFormControlTextarea1"
             rows="3"
           ></textarea>
-        </div>
+        </div> -->
 
 
 
-   <!-- <div class="form-group">
+    <div class="form-group">
           <label for="exampleFormControlInput1">Image URL</label>
           <input
             name="imageurl"
@@ -121,7 +121,7 @@
         </div>
 
         
-        <!-- action///users/uploads? -->
+        action///users/uploads? 
         <form action="/current/uploads" method="POST" enctype="multipart/form-data">
 
           
@@ -144,64 +144,78 @@
         <button type="submit" class="btn btn-outline-primary">Submit</button>
       </form>
     </div>
-    
+     
     <div class="col-lg-8 ">   <!--   put contain to condense -->
 
-      <h1>Marketplace!</h1>
-      <% items.forEach(function(item) { %>
-     <ul>
 
-      <form action="/routes/current" class="clear border color" method="POST">
-        <div class="form-group">
-          <h1>USERName/ID:</h1>
-          <h1><%= item.UserID %></h1> 
-          
-        </div>
+<h1>Marketplace!</h1>
+<% items.forEach(function(item) { %>
+<ul>
+
+  <form action="/routes/current" class="clear border color" method="POST">
+    <div class="form-group">
+      <h1>USERName/ID:</h1>
+      <h1><%= item.UserID %></h1>
+
+    </div>
 
 
 
     <div class="form-group contain">
-      
+
       <!-- <%= item.imageUrl %> -->
       <img width="180px" height="200px" src="<%= item.imageUrl %>" alt="No image currently" />
     </div>
-        
-        <div class="form-group">
-          <h1>Item:</h1>  <h1><%= item.item_Name %></h1>
-          
-        </div>
 
-        <div class="form-group">
-          <h1>Price:</h1> <h1 class="cash">$<%= item.amount %></h1>
-         
-        </div>
+    <div class="form-group">
+      <h1>Item:</h1>
+      <h1><%= item.item_Name %></h1>
 
-<div class="form-group">
-  <h1>categories:</h1> <h1><%= item.categories%></h1>
-</div>
+    </div>
 
+    <div class="form-group">
+      <h1>Price:</h1>
+      <h1 class="cash">$<%= item.amount %></h1>
 
-        <div class="form-group">
-          <h1>Info:</h1>  <h1><span> <%= item.Description%></span> </h1> 
-          
-        </div>
+    </div>
 
-        
-<div class="form-group contain">
-        <button type="button" class="btn btn-outline-primary right">Buy</button>
-      </div>
-      </form>
-      <%}) %>
+    <div class="form-group">
+      <h1>categories:</h1>
+      <h1><%= item.categories%></h1>
     </div>
 
 
+    <div class="form-group">
+      <h1>Info:</h1>
+      <h1><span> <%= item.Description%></span> </h1>
 
-</div>
+    </div>
+
+
+    <div class="form-group contain">
+      <button type="button" class="btn btn-outline-primary right">Buy</button>
+    </div>
+  </form>
+  <%}) %> -->
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </ul>
 <div class="contain"></div>
 <div class="col-lg-1 ">
   </div>
-
+</div>
     <!-- <aside class="col-sm-8">
   <div class="maincontent feedback">
     <h2 class="article-title">Recent Feedback</h2>
