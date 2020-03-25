@@ -13,7 +13,7 @@ const frontpage = require('./routes/frontpage')
 const bodyParser = require("body-parser");
 const pgp = require('pg-promise')()
 const CONNECTION_STRING = 'postgres://localhost:5432/green'
-// let auth = require("./auth");
+
 
 
 
@@ -175,7 +175,3 @@ db.sequelize.sync().then(() => {
   console.log(`Listening on PORT: ${PORT}`);
 });
 })
-
-
-
-

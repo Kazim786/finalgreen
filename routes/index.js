@@ -11,7 +11,8 @@ const session = require("express-session");
 router.get("/index", (req, res) => {
   res.render("index", {
     pageTitle: "index",
-    message: ""
+    message: null,
+    loginMessage: null
   });
 });
 
@@ -19,37 +20,6 @@ router.get("/index", (req, res) => {
 
 ///azams class///
 
-///checks password and username
-router.post("/", async (req, res) => {
-  let username = req.body.username; ///get username
-  let password = req.body.password; ///get password
-
-  let user = await db.User.findOne({
-    where: {
-      username: username
-    }
-  });
-  if (user) {
-    ////user exists
-    ///compare the password given and checks if taken
-    bcrypt.compare(password, Users.password, (error, result) => {
-      ///if not taken then send user to market page
-      if (result) {
-        if (req.session) {
-          ///creates a session
-          req.session.user = { userid: Users.id };
-          res.redirect("/current");
-        }
-        ///if password is wrong
-      } else {
-        res.render("/index", { message: "password/username is wrong" });
-      }
-    });
-    ///if username is wrong
-  } else {
-    res.render("/index", { message: "password/username is wrong" });
-  }
-});
 
 ///register and check if username is used////encyprt and save passwords
 router.post("/register", async (req, res) => {
@@ -82,7 +52,8 @@ router.post("/register", async (req, res) => {
 
         if (savedUser != null) {
           if(req.session) {
-            req.session.userName = savedUser.userName
+            req.session.username = savedUser.username
+            console.log(req.session)
           }
           res.redirect("current");
         } else {
@@ -95,8 +66,31 @@ router.post("/register", async (req, res) => {
   }
 });
 
+router.post("/login", async (req, res)=>{
+  console.log(req.body)
+  const passwordEnteredByUser = req.body.password
+  const usernameEnteredByUser = req.body.username
+  let persistedUser = await db.User.findOne({
+    where: {
+      username: usernameEnteredByUser
+    }
+  });
 
+  if(persistedUser) {
+    bcrypt.compare(passwordEnteredByUser, persistedUser.password, function(err, isMatch) {
+      if (err) {
+        throw err
+      } else if (!isMatch) {
+        res.render("index", { message: null, loginMessage: 'Incorrect username or password' });
+       
+      } else {
 
+        req.session.username = usernameEnteredByUser
+        res.redirect('/market')
+      }
+    })
+  }
+})
 ///azams class///
 
 ///uses promises////

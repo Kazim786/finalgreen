@@ -136,7 +136,7 @@
         
             </div>
 
-<form method="POST" id="form2" action="/current" class="opacity">
+<form method="POST" id="form2" action="/login" class="opacity">
 
 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">username</label>
 <div class="form-group row">
@@ -161,10 +161,23 @@
 
         </div>
 
+        <% if (loginMessage) { %>
+<div class="alert alert-danger" role="alert">
+   
+        <p> <%= loginMessage %></p>
+    
+
+        click Current Residence to try again
+</div>
+<% } %>
+
+<% if (message) { %>
+<div class="alert alert-danger" role="alert">
+   
+        <p> <%= message %></p>
 
 </div>
-
-</div>
+<% } %>
 
 
         <!-- <div class="contain3 ">
