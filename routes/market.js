@@ -5,10 +5,69 @@ let db = require("../models");
 
 
 
+// router.get("/market", (req, res) => {
+//   res.render("market", {
+//     pageTitle: "market"
+//   });
+// });
+
+
+
+
+///get all items//////
 router.get("/market", (req, res) => {
-  res.render("market", {
-    pageTitle: "market"
-  });
+  db.items.findAll().then(items => res.render("market", { items: items }));
 });
+
+
+
+////post new item//////
+
+router.post("/market", (req, res) => {
+  console.log(req.body)
+
+  let newItem = db.items
+    .create({
+      categories: req.body.category,
+      amount: req.body.amount,
+      imageUrl: req.body.imageurl,
+      Description: req.body.description,
+      item_Name: req.body.item,
+      UserID: req.body.user,
+      updatedAt: new Date(),
+      CreatedAt: new Date()
+    })
+    .then(submitedItem => {
+
+
+      db.items.findAll().then(items => {
+
+        res.render("market", { items: items })
+      })
+    })
+});
+
+////done////
+
+
+
+///deltel item//////
+
+router.get("/market/:id", (req, res) => {
+  db.items.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(() => res.send("worked"));
+});
+
+
+
+
+
+
+
+
+
 
 module.exports = router

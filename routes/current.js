@@ -12,9 +12,9 @@ router.use(bodyParser.json())
 
 ///upload///
 function uploadFile(req,callback){
-
+console.log("upload file ran")
 ///uses formidable install in app.js and this file to get uploads
-  new formidable.IncomingForm()
+  new formidable.IncomingForm({uploadDir:"../uploads"})
     .parse(req)
     .on("fileBegin", (name, file) => {
       //allow you to change name of file//
@@ -27,9 +27,10 @@ callback(file.name)
     })
 }
 
-router.post("/upload", (req, res) => {
-
+router.post("/uploads", (req, res) => {
+  console.log("hey")
 uploadFile(req,(photoURL)=>{
+
 res.render('routes/current',{imageUrl:photoURL})
 })
 
@@ -83,16 +84,6 @@ router.post("/current", (req, res) =>{
 });
 
 ////done////
-
-///deltel item//////
-
-router.get("/current/:id", (req, res) => {
-  db.items.destroy({
-    where: {
-      id: req.params.id
-    }
-  }).then(() => res.send("worked"));
-});
 
 
 
