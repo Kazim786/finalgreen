@@ -3,6 +3,7 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 let db = require('../models');
 const formidable = require("formidable");
+const auth = require('../util/authUsers')
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
@@ -38,7 +39,7 @@ res.render('routes/current',{imageUrl:photoURL})
 
 
 ///get all items//////
-router.get("/current", (req, res) => {
+router.get("/current", auth, (req, res) => {
 db.items.findAll().then(items => res.render("current", { items: items }));
 });
 

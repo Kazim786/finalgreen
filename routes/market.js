@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 let db = require("../models");
-const auth = require('../util/authMiddleware')
+const auth = require('../util/authOrgs')
 
 
 
@@ -16,7 +16,7 @@ const auth = require('../util/authMiddleware')
 
 
 ///get all items//////
-router.get("/market", (req, res) => {
+router.get("/market", auth, (req, res) => {
   db.items.findAll().then(items => res.render("market", { items: items }));
 });
 

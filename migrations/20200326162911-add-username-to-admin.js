@@ -9,23 +9,15 @@ module.exports = {
       Example:
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
-    items.associate = function(models){
-      items.belongsTo(models.Donations,{foreignkey:id});
-    };
-    return items;
+   return queryInterface.addColumn(
+    'Admins',
+    'username',
+    {
+      type: Sequelize.DataTypes.STRING,
+    }
+    
+  );
 
-    //azams class
-  //  return queryInterface.addConstraint(
-    //    'items',
-    //    ['donatedItemsId'],{
-    //      type: 'FOREIGN KEY',
-    //      references: {
-    //        name: 'donatedItemsId-fk-in-items',
-    //        table: 'Donations',
-    //        field: 'id'
-    //      }
-    //    }
-    //  )
 
   },
 
@@ -37,5 +29,6 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
+
   }
 };
