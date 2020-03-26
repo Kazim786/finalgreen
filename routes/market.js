@@ -16,7 +16,7 @@ const auth = require('../util/authOrgs')
 
 
 ///get all items//////
-router.get("/market", auth, (req, res) => {
+router.get("/market", (req, res) => {
   db.items.findAll().then(items => res.render("market", { items: items }));
 });
 
@@ -55,11 +55,15 @@ router.post("/market", (req, res) => {
 ///deltel item//////
 
 router.get("/market/:id", (req, res) => {
-  db.items.destroy({
-    where: {
-      id: req.params.id
-    }
-  }).then(() => res.send("worked"));
+  // db.items.destroy({
+  //   where: {
+  //     id: req.params.id
+  //   }
+  // }).then(() => {
+
+  //   db.items.findAll().then(items => res.render("market", { items: items }));
+    
+  // });
 });
 
 
