@@ -11,7 +11,7 @@
   </head>
   <body>
     <form method="POST" id="form1" action="/register" class="opacity">
-    
+        <input name="account_type" value="user" type="hidden"></input>
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">card number</label>
         <div class="form-group row">
             <div class="col-sm-10">
@@ -22,7 +22,7 @@
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Username</label>
         <div class="form-group row">
             <div class="col-sm-10">
-                <input name="name" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Username">
+                <input name="username" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Username">
             </div>
         </div>
          <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">address</label>
@@ -33,11 +33,11 @@
     </div> 
     
 
-<label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">username</label>
+<label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">name</label>
 <div class="form-group row">
     <div class="col-sm-10">
-        <input name="username" type="text" class="form-control form-control-sm" id="colFormLabelSm"
-            placeholder="username">
+        <input name="name" type="text" class="form-control form-control-sm" id="colFormLabelSm"
+            placeholder="name">
     </div>
 </div>
 
@@ -50,6 +50,14 @@
         </div>
     
         <button type="submit" class="btn btn-primary">Submit</button>
+
+        <% if (message) { %>
+            <div class="alert alert-danger" role="alert">
+               
+                    <p> <%= message %></p>
+            
+            </div>
+            <% } %>
     
     </form>
 

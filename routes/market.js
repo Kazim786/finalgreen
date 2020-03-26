@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 let db = require("../models");
-const auth = require('../util/authMiddleware')
+const auth = require('../util/authOrgs')
 
 
 
@@ -55,11 +55,15 @@ router.post("/market", (req, res) => {
 ///deltel item//////
 
 router.get("/market/:id", (req, res) => {
-  db.items.destroy({
-    where: {
-      id: req.params.id
-    }
-  }).then(() => res.send("worked"));
+  // db.items.destroy({
+  //   where: {
+  //     id: req.params.id
+  //   }
+  // }).then(() => {
+
+  //   db.items.findAll().then(items => res.render("market", { items: items }));
+    
+  // });
 });
 
 

@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <form method="POST" id="form1" action="/registerOrgs" class="opacity">
+    <form method="POST" id="form1" action="/register" class="opacity">
     
       
-    
+        <input name="account_type" value="org" type="hidden"></input>
         <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">username</label>
         <div class="form-group row">
             <div class="col-sm-10">
@@ -47,6 +47,14 @@
         </div>
     
         <button type="submit" class="btn btn-primary">Submit</button>
+
+        <% if (message) { %>
+            <div class="alert alert-danger" role="alert">
+               
+                    <p> <%= message %></p>
+            
+            </div>
+            <% } %>
     
     </form>
 

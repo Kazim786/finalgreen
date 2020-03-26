@@ -20,7 +20,7 @@
 <body>
 
 <nav class="navbar navbar-dark bg-dark">
-
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
         aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,6 +42,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/current">Marketplace</a>
             </li>
+
+            <% if (loggedIn) { %>
+                <li><a class="nav-link" href="/logout">Logout</a></li>
+            <% } %>
+            
         </ul>
     <h4><a class="nav-link" href="#">About-us</a></h4>
     </div>
@@ -74,19 +79,19 @@
             
         </div>
 
-<form method="POST" id="form1" action="/register" class="opacity">
-
-    <!-- <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">name</label>
+<form method="POST" id="form1" action="/login" class="opacity">
+    <input name="account_type" value="org" type="hidden"></input>
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">name</label>
     <div class="form-group row">
         <div class="col-sm-10">
-            <input name="name" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="email">
+            <input name="name" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="name">
         </div>
-    </div> -->
+    </div>
 
 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">username</label>
 <div class="form-group row">
     <div class="col-sm-10">
-        <input name="name" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Username">
+        <input name="username" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Username">
     </div>
 </div>
 
@@ -137,7 +142,7 @@
             </div>
 
 <form method="POST" id="form2" action="/login" class="opacity">
-
+    <input name="account_type" value="user" type="hidden"></input>
 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">username</label>
 <div class="form-group row">
     <div class="col-sm-10">
@@ -161,20 +166,22 @@
 
         </div>
 
-        <% if (loginMessage) { %>
+        <% if (userLoginMessage) { %>
 <div class="alert alert-danger" role="alert">
    
-        <p> <%= loginMessage %></p>
+        <p> <%= userLoginMessage %></p>
     
 
-        click Current Residence to try again
+        click Supporters to try again
 </div>
 <% } %>
 
-<% if (message) { %>
+<% if (orgLoginMessage) { %>
 <div class="alert alert-danger" role="alert">
    
-        <p> <%= message %></p>
+        <p> <%= orgLoginMessage %></p>
+
+        click Organizations to try again
 
 </div>
 <% } %>
