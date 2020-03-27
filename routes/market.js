@@ -55,16 +55,17 @@ router.post("/market", (req, res) => {
 ///deltel item//////
 
 router.get("/market/:id", (req, res) => {
-  // db.items.destroy({
-  //   where: {
-  //     id: req.params.id
-  //   }
-  // }).then(() => {
-
-  //   db.items.findAll().then(items => res.render("market", { items: items }));
-    
-  // });
-});
+  console.log(` ID IS: ${req.params.id}`)
+  db.items.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(() => {
+    console.log("I ran!")
+    db.items.findAll().then(items => res.render("market", { items: items }));
+      
+  });
+ });
 
 
 
