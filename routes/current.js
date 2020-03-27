@@ -11,36 +11,55 @@ router.use(bodyParser.urlencoded({ extended: false }));
 ///parese json///
 router.use(bodyParser.json())
 
-///upload///
-function uploadFile(req,callback){
-console.log("upload file ran")
-///uses formidable install in app.js and this file to get uploads
-  new formidable.IncomingForm({uploadDir:"../uploads"})
-    .parse(req)
-    .on("fileBegin", (name, file) => {
-      //allow you to change name of file//
-file.path = __basedir + "/uploads" + file.name
-    })
 
-    .on("file", (name, file) => {
-callback(file.name)
 
-    })
-}
 
-router.post("/uploads", (req, res) => {
-  console.log("hey")
-uploadFile(req,(photoURL)=>{
+// router.get("/current", (req, res) => {
+//   res.render("current", {
+//     pageTitle: "current",
+//     message: ""
+//   });
+// }); 
 
-res.render('routes/current',{imageUrl:photoURL})
-})
 
-})
+
+
+
+// ///upload///
+// function uploadFile(req,callback){
+// console.log("upload file ran")
+// ///uses formidable install in app.js and this file to get uploads
+//   new formidable.IncomingForm({uploadDir:"../uploads"})
+//     .parse(req)
+//     .on("fileBegin", (name, file) => {
+//       //allow you to change name of file//
+// file.path = __basedir + "/uploads" + file.name
+//     })
+
+//     .on("file", (name, file) => {
+// callback(file.name)
+
+//     })
+// }
+
+// router.post("/uploads", (req, res) => {
+//   console.log("hey")
+// uploadFile(req,(photoURL)=>{
+
+// res.render('routes/current',{imageUrl:photoURL})
+// })
+
+// })
 
 
 ///get all items//////
 router.get("/current", auth, (req, res) => {
-db.items.findAll().then(items => res.render("current", { items: items }));
+console.log("I ran!")
+db.items.findAll().then(items => { 
+ console.log("hey")
+  res.render("current", { items: items }  )
+});
+
 });
 
 /////done/////////
