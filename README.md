@@ -8,3 +8,6 @@ Our main issue was authentication, making sure passwords were secure and that a 
 
 						Solutions
 This was handled by making use of Bcrypt and SALT_Rounds to encrypt the password and make sure it was not stored as plain text anywhere in our database or site. After that we simply had to do various test runs with various usernames and passwords. Once they all passed we tested the site thoroughly and later added a sign up page for both orgs and donaters. 
+
+
+Nicholas Nwanochie
